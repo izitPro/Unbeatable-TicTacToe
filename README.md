@@ -7,11 +7,15 @@
 
 # How to Install and Run
 - Open up your terminal in your desired path, and clone this repository by typing in the following command: 
+
 `git clone https://github.com/threepoint14159265359/Unbeatable-TicTacToe.git`
 - Change the directory to Unbeatable-TicTacToe/src/
+
 - Compile the program by typing in the following command:
+
 `make`
-- Run 
+- Run
+
 `./game `
 
 # How to play 
