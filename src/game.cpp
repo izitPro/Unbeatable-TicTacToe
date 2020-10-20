@@ -24,14 +24,24 @@ void startDisplay();
 void clearScreen();
 
 int main(){
-   int turn,startChoice;
-   startDisplay();
-   cin>>startChoice;
-   if(startChoice == 1){
+    int turn,startChoice;
+    startDisplay();
+    while(!(cin>>startChoice) || (startChoice < 1 || startChoice > 2)){
+        cout << "[ERROR] please pick 1 or 2."<< endl ;
+        cin.clear();
+        cin.ignore(INT32_MAX, '\n');
+        cout << "1 ---> Player\n2 ---> Computer\n";
+     }
+    if(startChoice == 1){
         clearScreen();
         displayGrid();
 up:     cout<<endl<<"(Your turn)==>$\t";
-        cin>>turn;
+        while(!(cin>>turn)){
+            cout << "[ERROR] please pick a number from 1 to 9 - a box on the grid which is empty.\n";
+            cin.clear();
+            cin.ignore(INT32_MAX, '\n');
+            cout<<endl<<"(Your turn)==>$\t";
+        }
         if(grid[turn-1]==empty){
             grid[turn-1] = user;
             clearScreen();
@@ -57,7 +67,12 @@ up:     cout<<endl<<"(Your turn)==>$\t";
             break;
         }
 again:  cout<<endl<<"(Your turn)==>$\t";
-        cin>>turn;
+        while(!(cin>>turn)){
+            cout << "[ERROR] please pick a number from 1 to 9 - a box on the grid which is empty.\n";
+            cin.clear();
+            cin.ignore(INT32_MAX, '\n');
+            cout<<endl<<"(Your turn)==>$\t";
+        }
         clearScreen();
         if(grid[turn-1]==empty){
             grid[turn-1] = user;
